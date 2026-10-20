@@ -1,49 +1,284 @@
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const R=document.documentElement;
-/* data */
-const makes="Aston Martin,Audi,Bentley,BMW,Buick,Cadillac,Chevrolet,Chrysler,Dodge,Ferrari,Ford,GMC,Honda,Hummer,Hyundai,Infiniti,Jaguar,Jeep,Kia,Lamborghini,Land Rover,Lexus,Maserati,Maybach,Mazda,Mercedes,Mini cooper,Mitsubishi,Nissan,Pontiac Bonneville,Porsche,Rolls-Royce,Saab,Smart,Subaru,Suzuki,Toyota,Volkswagen,Volvo".split(",");
-makes.forEach(m=>$("#make").add(new Option(m,m)));
-for(let y=2026;y>=1990;y--)$("#year").add(new Option(y,y));
-const brands="ToyoTires,Primewell,Deestone,Altenzo,Seha Tires,Boliden,Runway,HPA,Chicago Pneumatic,Yacco,Xtra Rev,Ken-Tool,Exide,Bendix,JP,DHC,HK,PDW,Trane,Globe-x".split(",");
-const slug=b=>b.toLowerCase().replace(/ /g,"-").replace("toyotires","toyotires").replace("ken-tool","kentool");
-$("#tr").innerHTML=brands.map(b=>`<a class="brand" target="_blank" rel="noopener" href="https://www.hateco.com.lb/category/brands/${slug(b)}">${b}</a>`).join("");
-const prods=[["","Tires","tires","Toyo Tires,GITI,Primewell,Deestone,Runway,Seha,Altenzo,Minerva,Double Happiness"],["","Wheels","wheels","Globex,PDW,Maxxion,Owrun"],["","Batteries","batteries","Boliden,Exide,Trane,Globex,JP,Freedom,Craft,DF,Hagen"],["","Lubricants","lubricants","Yacco,Globex,Bendix,XREV,Magnum"],["","Garage Equipment","garage-equipment","HPA,DHC,Ken-tools,COMEC,Chicago Pneumatic"],["","Accessories","accessories",""]];
-$("#pg").innerHTML=prods.map(p=>`<a class="card rv" href="https://www.hateco.com.lb/category/products/${p[2]}"><h3 data-i18n="${p[1]}">${p[1]}</h3><div class="chips">${p[3].split(",").filter(Boolean).map(x=>`<i>${x}</i>`).join("")}</div><p style="margin:14px 0 0"><span class="more" data-i18n="Read more">Read more →</span></p></a>`).join("");
-$("#yr").textContent=new Date().getFullYear();
-/* i18n (Arabic) */
-const AR={"Social Links":"تابعنا","Home":"الرئيسية","About Us":"من نحن","Who We Are":"نبذة عنا","Vision & Mission":"الرؤية والرسالة","Services":"الخدمات","Wheel Alignment":"ضبط زوايا العجلات","Wheel Balancing":"موازنة العجلات","Free BTW Health Check":"فحص BTW المجاني (البطارية والإطار والعجلة)","Products":"المنتجات","Tires":"الإطارات","Wheels":"الجنوط","Batteries":"البطاريات","Lubricants":"زيوت التشحيم","Garage Equipment":"معدات الكراجات","Accessories":"الإكسسوارات","Dealers":"الوكلاء","Dealers Wanted":"مطلوب وكلاء","International Dealers Map":"خريطة الوكلاء الدوليين","Tips & Advice":"نصائح وإرشادات","Careers":"الوظائف","Contact Us":"اتصل بنا",
-"Since 1970 • Tripoli, Lebanon":"منذ 1970 • طرابلس، لبنان","Lebanon’s key importer of tires, batteries, wheels, lubes":"من أبرز مستوردي الإطارات والبطاريات والجنوط والزيوت في لبنان","and your one stop for all your auto needs and services":"ووجهتك الواحدة لكل احتياجات سيارتك وخدماتها","Choose Your Tire":"اختر إطارك","Make":"الشركة المصنعة","Year":"السنة","Model":"الطراز","Car Type":"نوع السيارة","Schedule Appointment":"احجز موعداً","Schedule an Appointment":"حجز موعد","appt":"احجز موعداً وسنتواصل معك لتأكيد التفاصيل.","Name":"الاسم","Phone Number":"رقم الهاتف","Message":"الرسالة","Send Request":"إرسال الطلب","Our Brands":"علاماتنا التجارية",
-"p1":"تأسست مؤسسة حمد عجاج التجارية عام 1970 على يد حمد عجاج باسم «حمد عجاج للتجارة وأولاده» للترويج للإطارات والبطاريات في طرابلس، لبنان.","p2":"تطورت الشركة على مر السنين لتحمل في عام 2001 اسمها الجديد: HATECO S.A.R.L. وتدير اليوم ثلاثة فروع ومقراً رئيسياً واحداً لخدمة عملائها بكفاءة، وأصبحت من أبرز المستوردين والموزعين الحصريين لأفضل العلامات العالمية في مجال الإطارات والبطاريات والجنوط وزيوت التشحيم وسائر منتجات السيارات.","p3":"كما توسعت هاتيكو وافتتحت في عام 2013 ورشة جديدة مجهزة بأحدث التقنيات والمعدات لتقديم خدمات سيارات جديدة لقطاع التجزئة. وقد خدمت هاتيكو السائقين في لبنان والدول المجاورة لأكثر من 40 عاماً بمستوى خدمة متميز، ومنتجات عالية الجودة، وتسليم في الوقت المناسب، وأسعار منافسة.","p4":"<b>العلامات العالمية:</b> Primewell, Deestone, Runway, GT Radial, Accelera, Boliden, Victorite, Globex wheels, Globex Lubricants<br><b>ISO-9001:2008</b> — «وكلاء وموزعون وتجار الإطارات والبطاريات والجنوط وزيوت التشحيم»، صادرة عن Bureau Veritas وUKAS Management Systems.",
-"Founded in Tripoli":"التأسيس في طرابلس","HATECO S.A.R.L is born":"ولادة HATECO S.A.R.L","New Workshop opens":"افتتاح ورشة جديدة","Years serving motorists":"سنة في خدمة السائقين","Read more":"اقرأ المزيد ←","Vision":"الرؤية","Mission":"الرسالة","vis":"رؤيتنا أن نكون المزوّد الأول لجميع منتجات السيارات في لبنان ومنطقة الشرق الأوسط وشمال أفريقيا.","mis":"رسالتنا أن نجلب أفضل منتجات السيارات من حول العالم ونوزعها على الناس في لبنان ومنطقة الشرق الأوسط وشمال أفريقيا.","deal":"لدينا وكلاء في جميع أنحاء لبنان، لمزيد من المعلومات اتصل بنا على:","Newsletter":"النشرة الإخبارية","Email":"البريد الإلكتروني","Subscribe":"اشترك","Headquarter":"المقر الرئيسي","a1":"الميناء، مرفأ طرابلس، ص.ب 1033","Tripoli, Maarad":"طرابلس، المعرض","a2":"المعرض، شارع فاضل مقدم، بناية عطرش وكبارة","Tripoli, Tebbeneh":"طرابلس، التبانة","a3":"شارع سوريا، قبل بنك FLB بـ 10 أمتار","Minieh, Akkar":"المنية، عكار","a4":"أوتوستراد المنية، مقابل مخبز البيادر","All rights are reserved":"جميع الحقوق محفوظة"};
-const MSG={en:{pick:"Please choose a make first.",ok:"Thanks! Complete the form below and we will contact you to confirm your appointment.",ap:"Thank you! Your appointment request has been sent. We will contact you shortly.",apx:"Please complete all fields with a valid phone number and email.",em:"Please enter a valid email.",sub:"Subscribed — thank you!"},ar:{pick:"يرجى اختيار الشركة المصنعة أولاً.",ok:"شكراً لك! أكمل النموذج أدناه وسنتواصل معك لتأكيد موعدك.",ap:"شكراً لك! تم إرسال طلب الموعد وسنتواصل معك قريباً.",apx:"يرجى تعبئة جميع الحقول برقم هاتف وبريد إلكتروني صحيحين.",em:"يرجى إدخال بريد إلكتروني صحيح.",sub:"تم الاشتراك — شكراً لك!"}};
-let lang="en";
-function setLang(l){lang=l;R.lang=l;R.dir=l=="ar"?"rtl":"ltr";$("#lang").textContent=l=="ar"?"English":"العربية";
-$$("[data-i18n]").forEach(e=>{const k=e.dataset.i18n;if(e.dataset.en==null)e.dataset.en=e.innerHTML;e.innerHTML=l=="ar"&&AR[k]?AR[k]:e.dataset.en});
-$$("[data-i18n-ph]").forEach(e=>{if(!e.dataset.en)e.dataset.en=e.placeholder;e.placeholder=l=="ar"?AR[e.dataset.i18nPh]:e.dataset.en});
-$("#msg").textContent="";$("#nm").textContent="";$("#apm").textContent="";try{localStorage.setItem("hl",l)}catch(e){}}
-$("#lang").onclick=()=>setLang(lang=="en"?"ar":"en");
-/* theme */
-const mq=matchMedia("(prefers-color-scheme:dark)");
-function setTheme(t){R.dataset.theme=t;t=="light"?R.setAttribute("data-lt",""):R.removeAttribute("data-lt");try{localStorage.setItem("ht",t)}catch(e){}}
-$("#theme").onclick=()=>setTheme(R.dataset.theme=="dark"?"light":"dark");
-let st=null,sl=null;try{st=localStorage.getItem("ht");sl=localStorage.getItem("hl")}catch(e){}
-setTheme(st||(mq.matches?"dark":"light"));if(sl=="ar")setLang("ar");
-/* nav */
-$("#bg").onclick=()=>$("#nv").classList.toggle("o");
-$$("nav .has>a").forEach(a=>a.addEventListener("click",e=>{if(innerWidth<=980){const li=a.parentElement;if(!li.classList.contains("open")){e.preventDefault();$$("nav li.open").forEach(x=>x.classList.remove("open"));li.classList.add("open")}}}));
-$$("nav a[href^='#']").forEach(a=>a.addEventListener("click",()=>$("#nv").classList.remove("o")));
-addEventListener("scroll",()=>{$("#hd").classList.toggle("s",scrollY>20);$("#up").classList.toggle("v",scrollY>600)});
-$("#up").onclick=()=>scrollTo({top:0});
-/* carousel */
-const tr=$("#tr");$("#nx").onclick=()=>tr.scrollBy({left:360*(lang=="ar"?-1:1)});$("#pv").onclick=()=>tr.scrollBy({left:-360*(lang=="ar"?-1:1)});
-/* finder + steps */
-$("#finder").onsubmit=e=>{e.preventDefault();const mk=$("#make").value;$("#msg").textContent=mk?MSG[lang].ok:MSG[lang].pick;if(!mk)return;const d=[mk,$("#model").value,$("#year").value,$("#type").value].filter(Boolean).join(" ");if(!$("#am").value)$("#am").value=(lang=="ar"?"أرغب في حجز موعد لإطارات سيارة: ":"I would like an appointment for tires for: ")+d;$("#appointment").scrollIntoView({behavior:"smooth"})};
-/* NOTE: connect this form to a real endpoint (e.g. Formspree) to receive requests */
-$("#ap").onsubmit=e=>{e.preventDefault();const ok=$("#an").value.trim()&&/^[+\d][\d\s()-]{6,}$/.test($("#aph").value.trim())&&/^\S+@\S+\.\S+$/.test($("#ae").value)&&$("#am").value.trim();$("#apm").textContent=ok?MSG[lang].ap:MSG[lang].apx;if(ok)e.target.reset()};
-$("#nl").onsubmit=e=>{e.preventDefault();$("#nm").textContent=/^\S+@\S+\.\S+$/.test($("#em").value)?MSG[lang].sub:MSG[lang].em};
-/* reveal + counters */
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});
-$$(".rv").forEach(e=>io.observe(e));
-const co=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;const e=x.target,n=+e.dataset.c,s=e.dataset.s||"",f=n>100?n-60:0,t0=performance.now();
-(function f1(t){const p=Math.min((t-t0)/1400,1);e.textContent=Math.round(f+(n-f)*p)+(p==1?s:"");if(p<1)requestAnimationFrame(f1)})(t0);co.unobserve(e)}),{threshold:.6});
-$$("[data-c]").forEach(e=>co.observe(e));
+/* ===========================================================
+   HATECO – script.js
+   -----------------------------------------------------------
+   1. Helpers
+   2. Site data        <-- edit car makes, brands, product lists here
+   3. Build page parts from that data
+   4. Language switcher (English / Arabic)  -> Arabic text is in translations.js
+   5. Theme switcher (light / dark)
+   6. Navigation & header
+   7. Brand carousel
+   8. Forms (tire finder, appointment, newsletter)
+   9. Scroll effects (reveal on scroll + number counters)
+   =========================================================== */
+
+
+/* ===========================================================
+   1. HELPERS
+   =========================================================== */
+const $  = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+const root = document.documentElement;   // the <html> element
+
+
+/* ===========================================================
+   2. SITE DATA  (edit these lists to change what is shown)
+   =========================================================== */
+const SHOP_URL = "https://www.hateco.com.lb";
+
+// Years shown in the tire finder (newest first)
+const YEAR_FROM = 2026;
+const YEAR_TO   = 1990;
+
+// Makes shown in the tire finder
+const CAR_MAKES = [
+  "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet",
+  "Chrysler", "Dodge", "Ferrari", "Ford", "GMC", "Honda", "Hummer", "Hyundai",
+  "Infiniti", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus",
+  "Maserati", "Maybach", "Mazda", "Mercedes", "Mini cooper", "Mitsubishi",
+  "Nissan", "Pontiac Bonneville", "Porsche", "Rolls-Royce", "Saab", "Smart",
+  "Subaru", "Suzuki", "Toyota", "Volkswagen", "Volvo"
+];
+
+// Brand carousel: [name shown, last part of the brand page link]
+const BRANDS = [
+  ["ToyoTires", "toyotires"],
+  ["Primewell", "primewell"],
+  ["Deestone", "deestone"],
+  ["Altenzo", "altenzo"],
+  ["Seha Tires", "seha-tires"],
+  ["Boliden", "boliden"],
+  ["Runway", "runway"],
+  ["HPA", "hpa"],
+  ["Chicago Pneumatic", "chicago-pneumatic"],
+  ["Yacco", "yacco"],
+  ["Xtra Rev", "xtra-rev"],
+  ["Ken-Tool", "kentool"],
+  ["Exide", "exide"],
+  ["Bendix", "bendix"],
+  ["JP", "jp"],
+  ["DHC", "dhc"],
+  ["HK", "hk"],
+  ["PDW", "pdw"],
+  ["Trane", "trane"],
+  ["Globe-x", "globe-x"]
+];
+
+// Product cards: name (must match a key in translations.js),
+// last part of the category link, and the brand chips shown on the card
+const PRODUCTS = [
+  { name: "Tires",            slug: "tires",            brands: ["Toyo Tires", "GITI", "Primewell", "Deestone", "Runway", "Seha", "Altenzo", "Minerva", "Double Happiness"] },
+  { name: "Wheels",           slug: "wheels",           brands: ["Globex", "PDW", "Maxxion", "Owrun"] },
+  { name: "Batteries",        slug: "batteries",        brands: ["Boliden", "Exide", "Trane", "Globex", "JP", "Freedom", "Craft", "DF", "Hagen"] },
+  { name: "Lubricants",       slug: "lubricants",       brands: ["Yacco", "Globex", "Bendix", "XREV", "Magnum"] },
+  { name: "Garage Equipment", slug: "garage-equipment", brands: ["HPA", "DHC", "Ken-tools", "COMEC", "Chicago Pneumatic"] },
+  { name: "Accessories",      slug: "accessories",      brands: [] }
+];
+
+
+/* ===========================================================
+   3. BUILD PAGE PARTS FROM THE DATA ABOVE
+   =========================================================== */
+
+// Tire finder dropdowns
+CAR_MAKES.forEach(make => $("#make").add(new Option(make, make)));
+for (let year = YEAR_FROM; year >= YEAR_TO; year--) {
+  $("#year").add(new Option(year, year));
+}
+
+// Brand tiles
+$("#tr").innerHTML = BRANDS.map(([name, slug]) =>
+  `<a class="brand" target="_blank" rel="noopener" href="${SHOP_URL}/category/brands/${slug}">${name}</a>`
+).join("");
+
+// Product cards
+$("#pg").innerHTML = PRODUCTS.map(product =>
+  `<a class="card rv" href="${SHOP_URL}/category/products/${product.slug}">` +
+    `<h3 data-i18n="${product.name}">${product.name}</h3>` +
+    `<div class="chips">${product.brands.map(brand => `<i>${brand}</i>`).join("")}</div>` +
+    `<p style="margin:14px 0 0"><span class="more" data-i18n="Read more">Read more →</span></p>` +
+  `</a>`
+).join("");
+
+// Footer year
+$("#yr").textContent = new Date().getFullYear();
+
+
+/* ===========================================================
+   4. LANGUAGE SWITCHER  (English <-> Arabic)
+   English text lives in index.html; Arabic text is in translations.js
+   =========================================================== */
+let lang = "en";
+
+function setLang(newLang) {
+  lang = newLang;
+  root.lang = newLang;
+  root.dir = newLang === "ar" ? "rtl" : "ltr";
+  $("#lang").textContent = newLang === "ar" ? "English" : "العربية";
+
+  // Swap the text of every element that has data-i18n="key"
+  $$("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (el.dataset.en == null) el.dataset.en = el.innerHTML;   // remember the English text
+    el.innerHTML = newLang === "ar" && AR[key] ? AR[key] : el.dataset.en;
+  });
+
+  // Swap input placeholders (data-i18n-ph="key")
+  $$("[data-i18n-ph]").forEach(el => {
+    if (!el.dataset.en) el.dataset.en = el.placeholder;
+    el.placeholder = newLang === "ar" ? AR[el.dataset.i18nPh] : el.dataset.en;
+  });
+
+  // Clear old form messages so they don't stay in the wrong language
+  $("#msg").textContent = "";
+  $("#nm").textContent  = "";
+  $("#apm").textContent = "";
+
+  try { localStorage.setItem("hl", newLang); } catch (e) {}   // remember the choice
+}
+
+$("#lang").onclick = () => setLang(lang === "en" ? "ar" : "en");
+
+
+/* ===========================================================
+   5. THEME SWITCHER  (light <-> dark)
+   Colors are defined in style.css (:root and the dark blocks)
+   =========================================================== */
+const darkQuery = matchMedia("(prefers-color-scheme:dark)");
+
+function setTheme(theme) {
+  root.dataset.theme = theme;
+  if (theme === "light") root.setAttribute("data-lt", "");   // moves the switch knob
+  else root.removeAttribute("data-lt");
+  try { localStorage.setItem("ht", theme); } catch (e) {}    // remember the choice
+}
+
+$("#theme").onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+
+// On load: use the saved choice, otherwise follow the device setting
+let savedTheme = null, savedLang = null;
+try {
+  savedTheme = localStorage.getItem("ht");
+  savedLang  = localStorage.getItem("hl");
+} catch (e) {}
+
+setTheme(savedTheme || (darkQuery.matches ? "dark" : "light"));
+if (savedLang === "ar") setLang("ar");
+
+
+/* ===========================================================
+   6. NAVIGATION & HEADER
+   =========================================================== */
+const MOBILE_NAV_WIDTH = 980;   // keep equal to the 980px breakpoint in style.css
+
+// Menu button (mobile)
+$("#bg").onclick = () => $("#nv").classList.toggle("o");
+
+// Mobile: first tap on an item with a dropdown opens it, second tap follows the link
+$$("nav .has>a").forEach(link => link.addEventListener("click", event => {
+  if (innerWidth > MOBILE_NAV_WIDTH) return;
+  const item = link.parentElement;
+  if (!item.classList.contains("open")) {
+    event.preventDefault();
+    $$("nav li.open").forEach(other => other.classList.remove("open"));
+    item.classList.add("open");
+  }
+}));
+
+// Close the mobile menu after choosing an on-page link
+$$("nav a[href^='#']").forEach(link =>
+  link.addEventListener("click", () => $("#nv").classList.remove("o"))
+);
+
+// Header shadow + back-to-top button appear after scrolling
+addEventListener("scroll", () => {
+  $("#hd").classList.toggle("s", scrollY > 20);
+  $("#up").classList.toggle("v", scrollY > 600);
+});
+$("#up").onclick = () => scrollTo({ top: 0 });
+
+
+/* ===========================================================
+   7. BRAND CAROUSEL
+   =========================================================== */
+const CAROUSEL_STEP = 360;                 // pixels moved per arrow click
+const track = $("#tr");
+const dir = () => (lang === "ar" ? -1 : 1);   // arrows flip in Arabic (right-to-left)
+
+$("#nx").onclick = () => track.scrollBy({ left:  CAROUSEL_STEP * dir() });
+$("#pv").onclick = () => track.scrollBy({ left: -CAROUSEL_STEP * dir() });
+
+
+/* ===========================================================
+   8. FORMS
+   =========================================================== */
+const EMAIL_RE = /^\S+@\S+\.\S+$/;
+const PHONE_RE = /^[+\d][\d\s()-]{6,}$/;
+
+// Tire finder: checks a make was chosen, copies the details into the
+// appointment message, then scrolls to the appointment form
+$("#finder").onsubmit = event => {
+  event.preventDefault();
+  const make = $("#make").value;
+  $("#msg").textContent = make ? MSG[lang].ok : MSG[lang].pick;
+  if (!make) return;
+
+  const details = [make, $("#model").value, $("#year").value, $("#type").value]
+    .filter(Boolean).join(" ");
+  if (!$("#am").value) $("#am").value = MSG[lang].prefill + details;
+  $("#appointment").scrollIntoView({ behavior: "smooth" });
+};
+
+// Appointment form: checks the fields and shows a confirmation.
+// NOTE: it does not send anything yet. Connect it to a form service
+// (e.g. Formspree) or your own backend to receive the requests.
+$("#ap").onsubmit = event => {
+  event.preventDefault();
+  const valid = $("#an").value.trim()
+    && PHONE_RE.test($("#aph").value.trim())
+    && EMAIL_RE.test($("#ae").value)
+    && $("#am").value.trim();
+  $("#apm").textContent = valid ? MSG[lang].ap : MSG[lang].apx;
+  if (valid) event.target.reset();
+};
+
+// Newsletter form: checks the email and shows a message (nothing is sent yet)
+$("#nl").onsubmit = event => {
+  event.preventDefault();
+  $("#nm").textContent = EMAIL_RE.test($("#em").value) ? MSG[lang].sub : MSG[lang].em;
+};
+
+
+/* ===========================================================
+   9. SCROLL EFFECTS
+   =========================================================== */
+
+// Fade-in: elements with class "rv" appear when scrolled into view
+const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (entry.isIntersecting) {
+    entry.target.classList.add("in");
+    revealObserver.unobserve(entry.target);
+  }
+}), { threshold: 0.15 });
+$$(".rv").forEach(el => revealObserver.observe(el));
+
+// Number counters: elements with data-c="target" count up when visible
+// (optional data-s="+" adds a suffix at the end)
+const COUNTER_MS = 1400;   // animation length
+const counterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (!entry.isIntersecting) return;
+  const el     = entry.target;
+  const target = +el.dataset.c;
+  const suffix = el.dataset.s || "";
+  const from   = target > 100 ? target - 60 : 0;   // years count up from 60 below
+  const start  = performance.now();
+
+  (function tick(now) {
+    const progress = Math.min((now - start) / COUNTER_MS, 1);
+    el.textContent = Math.round(from + (target - from) * progress) + (progress === 1 ? suffix : "");
+    if (progress < 1) requestAnimationFrame(tick);
+  })(start);
+
+  counterObserver.unobserve(el);
+}), { threshold: 0.6 });
+$$("[data-c]").forEach(el => counterObserver.observe(el));
