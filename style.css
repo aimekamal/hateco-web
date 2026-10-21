@@ -295,9 +295,11 @@ header .wrap {
   display: block;
   width: auto;
   height: 64px;
-  max-width: none;
+  max-width: 260px;
   object-fit: contain;
+  flex-shrink: 0;
 }
+
 
 /* Show the light-theme logo by default */
 .logo .logo-light {
@@ -1031,10 +1033,12 @@ textarea {
     height: 84px;
   }
 
+
   .logo img {
-    height: 68px;
-    max-width: calc(100vw - 130px);
+    height: 60px;
+    max-width: min(260px, calc(100vw - 130px));
   }
+
 }
 
 /* Phones */
