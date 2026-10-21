@@ -87,10 +87,12 @@ for (let year = YEAR_FROM; year >= YEAR_TO; year--) {
 }
 
 
+ 
  // Brand tiles — logos + automatic infinite carousel
 const brandTiles = BRANDS.map(([name, slug, logo]) => {
   const content = logo
-    ? `<img src="${logo}" alt="${name}" loading="lazy">`
+    ? `<img src="./${logo}" alt="${name}" loading="lazy"
+         onerror="console.error('Failed to load brand logo:', this.src)">`
     : `<span class="brand-name">${name}</span>`;
 
   return `<a class="brand"
@@ -104,7 +106,6 @@ const brandTiles = BRANDS.map(([name, slug, logo]) => {
 const brandTrack = $("#tr");
 
 if (brandTrack) {
-  // Duplicate the tiles for a seamless scrolling loop
   brandTrack.innerHTML = `
     <div class="track-inner">
       ${brandTiles}
