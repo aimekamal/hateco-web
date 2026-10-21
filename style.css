@@ -1149,3 +1149,36 @@ textarea {
 .appt .msg {
   text-align: center;
 }
+
+/* ==========================================================
+   INNER-PAGE BANNER  (About Us and other inner pages)
+   ========================================================== */
+
+.page-hero {
+  padding: 64px 0;
+}
+
+.page-hero .wrap {
+  grid-template-columns: 1fr;
+}
+
+.page-hero h1 {
+  font-size: clamp(38px, 5vw, 60px);
+  margin: 10px 0 0;
+}
+
+.crumbs {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: #cfc4ae;
+}
+
+.crumbs a:hover {
+  color: var(--orange);
+}
+
+/* Highlight the menu item of the page you are on */
+nav>ul>li>a.current {
+  color: var(--orange);
+}
