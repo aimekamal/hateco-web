@@ -693,7 +693,7 @@ section {
   width: max-content;
   flex: 0 0 auto;
   gap: 24px;
-  animation: brand-scroll 45s linear infinite;
+  animation: brand-scroll 65s linear infinite;
   will-change: transform;
 }
 
@@ -764,7 +764,7 @@ section {
 @media (max-width: 600px) {
   .track-inner {
     gap: 16px;
-    animation-duration: 35s;
+    animation-duration: 50s;
   }
 
   .brand {
