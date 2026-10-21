@@ -42,7 +42,7 @@ const CAR_MAKES = [
 
 // Brand carousel: [name shown, last part of the brand page link]
 const BRANDS = [
-  ["ToyoTires", "toyotires"],
+  ["ToyoTires", "toyotires","ToyoTires-logo.png"],
   ["Primewell", "primewell"],
   ["Deestone", "deestone"],
   ["Altenzo", "altenzo"],
@@ -86,10 +86,33 @@ for (let year = YEAR_FROM; year >= YEAR_TO; year--) {
   $("#year").add(new Option(year, year));
 }
 
-// Brand tiles
-$("#tr").innerHTML = BRANDS.map(([name, slug]) =>
-  `<a class="brand" target="_blank" rel="noopener" href="${SHOP_URL}/category/brands/${slug}">${name}</a>`
-).join("");
+
+ // Brand tiles — logos + automatic infinite carousel
+const brandTiles = BRANDS.map(([name, slug, logo]) => {
+  const content = logo
+    ? `<img src="${logo}" alt="${name}" loading="lazy">`
+    : `<span class="brand-name">${name}</span>`;
+
+  return `<a class="brand"
+    href="${SHOP_URL}/category/brands/${slug}"
+    target="_blank"
+    rel="noopener">
+    ${content}
+  </a>`;
+}).join("");
+
+const brandTrack = $("#tr");
+
+if (brandTrack) {
+  // Duplicate the tiles for a seamless scrolling loop
+  brandTrack.innerHTML = `
+    <div class="track-inner">
+      ${brandTiles}
+      ${brandTiles}
+    </div>
+  `;
+}
+
 
 // Product cards
 $("#pg").innerHTML = PRODUCTS.map(product =>

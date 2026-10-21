@@ -665,71 +665,126 @@ section {
   color: var(--text-muted);
 }
 
+
 /* ==========================================================
-   BRANDS CAROUSEL
+   BRANDS CAROUSEL — AUTOMATIC INFINITE SCROLL
    ========================================================== */
 
 .car {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .track {
   display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 6px 2px;
-  flex: 1;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 12px 2px;
 }
 
-.track::-webkit-scrollbar {
-  display: none;
+.track-inner {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  flex: 0 0 auto;
+  gap: 24px;
+  animation: brand-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+.track:hover .track-inner {
+  animation-play-state: paused;
 }
 
 .brand {
-  flex: 0 0 auto;
-  min-width: 150px;
-  text-align: center;
-  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 170px;
+  width: 170px;
+  height: 100px;
+  padding: 16px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 8px;
+  text-decoration: none;
+  transition: background-color .25s ease,
+              border-color .25s ease,
+              transform .25s ease;
+}
+
+.brand img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-name {
   font: 700 20px "Barlow Condensed", sans-serif;
-  letter-spacing: .06em;
+  letter-spacing: .04em;
   text-transform: uppercase;
-  transition: .25s;
+  color: inherit;
 }
 
 .brand:hover {
-  background: var(--orange);
-  color: #fff;
+  background: var(--card);
   border-color: var(--orange);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
-.arr {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 2px solid var(--orange);
-  background: none;
-  color: var(--orange);
-  font-size: 20px;
-  cursor: pointer;
-  transition: .25s;
-  flex: none;
+.brand:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
 }
 
-.arr:hover {
-  background: var(--orange);
-  color: #fff;
+@keyframes brand-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-[dir=rtl] .arr {
-  transform: scaleX(-1);
+/* Reverse direction for Arabic layouts */
+[dir="rtl"] .track-inner {
+  animation-direction: reverse;
+}
+
+/* Keep the carousel usable on smaller screens */
+@media (max-width: 600px) {
+  .track-inner {
+    gap: 16px;
+    animation-duration: 35s;
+  }
+
+  .brand {
+    flex-basis: 140px;
+    width: 140px;
+    height: 82px;
+    padding: 12px;
+  }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .track-inner {
+    animation: none;
+    transform: none;
+  }
+
+  .track {
+    overflow-x: auto;
+  }
 }
 
 /* ==========================================================
