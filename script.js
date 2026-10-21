@@ -42,11 +42,11 @@ const CAR_MAKES = [
 
 // Brand carousel: [name shown, last part of the brand page link]
 const BRANDS = [
-  ["ToyoTires", "ToyoTires-logo.png"],
-  ["Primewell", "primewell.png"],
-  ["Deestone", "dsssss.jpg"],
-  ["Altenzo", "altenzo.png"],
-  ["Seha Tires", "seha.png"],
+  ["ToyoTires", "toyotires","ToyoTires-logo.png"],
+  ["Primewell", "primewell", "primewell.png"],
+  ["Deestone", "deestone", "dsssss.jpg"],
+  ["Altenzo", "altenzo", "altenzo.png"],
+  ["Seha Tires", "seha-tires", "seha.png"],
   ["Boliden", "boliden"],
   ["Runway", "runway"],
   ["HPA", "hpa"],
