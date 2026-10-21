@@ -294,8 +294,8 @@ header .wrap {
 .logo img {
   display: block;
   width: auto;
-  height: 48px;
-  max-width: 190px;
+  height: 64px;
+  max-width: none;
   object-fit: contain;
 }
 
@@ -701,7 +701,6 @@ section {
   align-items: center;
   width: max-content;
   flex: 0 0 auto;
-  gap: 24px;
   animation: brand-scroll 65s linear infinite;
   will-change: transform;
 }
@@ -723,6 +722,7 @@ section {
   border: 1px solid var(--border);
   border-radius: 8px;
   text-decoration: none;
+  margin-inline-end: 24px;
   transition: background-color .25s ease,
               border-color .25s ease,
               transform .25s ease;
@@ -764,15 +764,24 @@ section {
   }
 }
 
-/* Reverse direction for Arabic layouts */
+/* Arabic layouts: scroll the other way with its own keyframes */
 [dir="rtl"] .track-inner {
-  animation-direction: reverse;
+  animation-name: brand-scroll-rtl;
+}
+
+@keyframes brand-scroll-rtl {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(50%);
+  }
 }
 
 /* Keep the carousel usable on smaller screens */
 @media (max-width: 600px) {
   .track-inner {
-    gap: 16px;
     animation-duration: 50s;
   }
 
@@ -781,6 +790,7 @@ section {
     width: 140px;
     height: 82px;
     padding: 12px;
+    margin-inline-end: 16px;
   }
 }
 
@@ -1022,7 +1032,8 @@ textarea {
   }
 
   .logo img {
-    height: 56px;
+    height: 68px;
+    max-width: calc(100vw - 130px);
   }
 }
 

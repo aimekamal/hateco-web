@@ -20,12 +20,6 @@ const $  = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const root = document.documentElement;   // the <html> element
 
-
-/* ===========================================================
-   2. SITE DATA  (edit these lists to change what is shown)
-   =========================================================== */
-const SHOP_URL = "https://www.hateco.com.lb";
-
 // Years shown in the tire finder (newest first)
 const YEAR_FROM = 2026;
 const YEAR_TO   = 1990;
@@ -88,19 +82,16 @@ for (let year = YEAR_FROM; year >= YEAR_TO; year--) {
 
 
  
- // Brand tiles — logos + automatic infinite carousel
+// Brand tiles — logos + automatic infinite carousel
 const brandTiles = BRANDS.map(([name, slug, logo]) => {
   const content = logo
     ? `<img src="./${logo}" alt="${name}" loading="lazy"
          onerror="console.error('Failed to load brand logo:', this.src)">`
     : `<span class="brand-name">${name}</span>`;
 
-  return `<a class="brand"
-    href="${SHOP_URL}/category/brands/${slug}"
-    target="_blank"
-    rel="noopener">
+  return `<div class="brand">
     ${content}
-  </a>`;
+  </div>`;
 }).join("");
 
 const brandTrack = $("#tr");
@@ -114,10 +105,9 @@ if (brandTrack) {
   `;
 }
 
-
 // Product cards
 $("#pg").innerHTML = PRODUCTS.map(product =>
-  `<a class="card rv" href="${SHOP_URL}/category/products/${product.slug}">` +
+  `<a class="card rv" href="#products">` +
     `<h3 data-i18n="${product.name}">${product.name}</h3>` +
     `<div class="chips">${product.brands.map(brand => `<i>${brand}</i>`).join("")}</div>` +
     `<p style="margin:14px 0 0"><span class="more" data-i18n="Read more">Read more →</span></p>` +
@@ -228,9 +218,6 @@ $("#up").onclick = () => scrollTo({ top: 0 });
 const CAROUSEL_STEP = 360;                 // pixels moved per arrow click
 const track = $("#tr");
 const dir = () => (lang === "ar" ? -1 : 1);   // arrows flip in Arabic (right-to-left)
-
-$("#nx").onclick = () => track.scrollBy({ left:  CAROUSEL_STEP * dir() });
-$("#pv").onclick = () => track.scrollBy({ left: -CAROUSEL_STEP * dir() });
 
 
 /* ===========================================================
