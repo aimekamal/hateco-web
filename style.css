@@ -1087,3 +1087,56 @@ textarea {
     transform: none;
   }
 }
+
+/* Notice shown when a menu item leads to a page that is not built yet */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 20px);
+  background: var(--black);
+  color: #F6EFE3;
+  border-inline-start: 4px solid var(--orange);
+  padding: 12px 20px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+  z-index: 70;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Newsletter inside the orange band */
+.cta-form {
+  position: relative;
+  flex: 1 1 360px;
+  max-width: 520px;
+}
+
+.cta .nl {
+  margin: 0;
+  max-width: none;
+}
+
+.cta .nl input {
+  background: #fff;
+  color: #141414;
+  border-color: transparent;
+}
+
+.cta .nl input:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px #0d0d0d55;
+}
+
+.cta .msg {
+  position: absolute;
+  top: 100%;
+  margin-top: 8px;
+  min-height: 0;
+  color: var(--black);
+}

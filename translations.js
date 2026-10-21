@@ -95,7 +95,8 @@ const MSG = {
     apx: "Please complete all fields with a valid phone number and email.",
     em: "Please enter a valid email.",
     sub: "Subscribed — thank you!",
-    prefill: "I would like an appointment for tires for: "
+    prefill: "I would like an appointment for tires for: ",
+    soon: "This page is coming soon."
   },
   ar: {
     pick: "يرجى اختيار الشركة المصنعة أولاً.",
@@ -104,6 +105,7 @@ const MSG = {
     apx: "يرجى تعبئة جميع الحقول برقم هاتف وبريد إلكتروني صحيحين.",
     em: "يرجى إدخال بريد إلكتروني صحيح.",
     sub: "تم الاشتراك — شكراً لك!",
-    prefill: "أرغب في حجز موعد لإطارات سيارة: "
+    prefill: "أرغب في حجز موعد لإطارات سيارة: ",
+    soon: "هذه الصفحة قادمة قريباً."
   }
 };

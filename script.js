@@ -259,6 +259,16 @@ $("#nl").onsubmit = event => {
   $("#nm").textContent = EMAIL_RE.test($("#em").value) ? MSG[lang].sub : MSG[lang].em;
 };
 
+// Menu items whose pages are not built yet: show a short notice
+const toast = $("#toast");
+let toastTimer;
+$$("[data-soon]").forEach(link => link.addEventListener("click", event => {
+  event.preventDefault();
+  toast.textContent = MSG[lang].soon;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+}));
 
 /* ===========================================================
    9. SCROLL EFFECTS
