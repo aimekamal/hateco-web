@@ -292,20 +292,29 @@ header .wrap {
 }
 
 .logo img {
-  height: 68px;
-  width: auto;
   display: block;
-  max-width: none;
+  width: auto;
+  height: 48px;
+  max-width: 190px;
+  object-fit: contain;
 }
 
-.lt[hidden] {
+/* Show the light-theme logo by default */
+.logo .logo-light {
+  display: block;
+}
+
+.logo .logo-dark {
   display: none;
 }
 
-:root[data-theme="dark"] .logo img {
-  background: #F6EFE3;
-  padding: 6px 14px;
-  border-radius: 8px;
+/* Switch logos when dark mode is active */
+:root[data-theme="dark"] .logo .logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .logo .logo-dark {
+  display: block;
 }
 
 nav>ul {
