@@ -596,3 +596,50 @@
     animation: none;
   }
 }
+
+
+/* Floating WhatsApp placeholder */
+.whatsapp-float {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 1200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+
+  background: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.20);
+
+  text-decoration: none;
+  cursor: default;
+
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-float svg {
+  width: 29px;
+  height: 29px;
+}
+
+@media (hover: hover) {
+  .whatsapp-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 26px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    left: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+}
