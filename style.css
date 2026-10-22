@@ -1184,3 +1184,17 @@ textarea {
 nav>ul>li>a.current {
   color: var(--orange);
 }
+
+
+/* Instagram footer icon */
+footer .soc .instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .soc .instagram-link svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
