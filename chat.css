@@ -72,25 +72,30 @@
   display: block;
 }
 
+/* Hide the round button while the chat is open (the panel has its own close button) */
+.chat-launch[aria-expanded="true"] {
+  visibility: hidden;
+}
+
 /* Main chatbot panel */
 
 .chat-panel {
   /* Space kept free around the panel: change these two numbers to adjust */
-  --chat-bottom: 152px;   /* distance from the bottom of the screen */
+  --chat-bottom: 24px;    /* distance from the bottom of the screen */
   --chat-top: 100px;      /* space kept free at the top (top bar + header) */
 
   position: fixed;
   right: 24px;
   left: auto;
   bottom: var(--chat-bottom);
-  z-index: 1199;
+  z-index: 1201;
 
   display: flex;
   flex-direction: column;
 
   width: min(390px, calc(100vw - 32px));
-  height: min(620px, calc(100vh - var(--chat-bottom) - var(--chat-top)));
-  height: min(620px, calc(100dvh - var(--chat-bottom) - var(--chat-top)));
+  height: min(700px, calc(100vh - var(--chat-bottom) - var(--chat-top)));
+  height: min(700px, calc(100dvh - var(--chat-bottom) - var(--chat-top)));
   min-height: 0;
 
   padding: 0;
