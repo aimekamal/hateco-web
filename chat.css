@@ -77,7 +77,7 @@
 .chat-panel {
   /* Space kept free around the panel: change these two numbers to adjust */
   --chat-bottom: 152px;   /* distance from the bottom of the screen */
-  --chat-top: 140px;      /* space kept free at the top (top bar + header) */
+  --chat-top: 100px;      /* space kept free at the top (top bar + header) */
 
   position: fixed;
   right: 24px;
@@ -89,8 +89,8 @@
   flex-direction: column;
 
   width: min(390px, calc(100vw - 32px));
-  height: min(560px, calc(100vh - var(--chat-bottom) - var(--chat-top)));
-  height: min(560px, calc(100dvh - var(--chat-bottom) - var(--chat-top)));
+  height: min(620px, calc(100vh - var(--chat-bottom) - var(--chat-top)));
+  height: min(620px, calc(100dvh - var(--chat-bottom) - var(--chat-top)));
   min-height: 0;
 
   padding: 0;
@@ -318,23 +318,23 @@
 }
 
 /* Quick replies: fixed below the conversation */
-
 .chat-panel .chat-chips {
   position: relative;
   z-index: 1;
 
   display: flex;
   flex: 0 0 auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 7px;
 
   min-width: 0;
-  max-height: 112px;
   padding: 10px 12px;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #c6b69e transparent;
 
   background: var(--card);
   border-top: 1px solid var(--border);
@@ -490,7 +490,7 @@
 
   .chat-panel {
     --chat-bottom: 140px;
-    --chat-top: calc(160px + env(safe-area-inset-top, 0px));
+    --chat-top: calc(100px + env(safe-area-inset-top, 0px));
 
     right: 12px;
     left: 12px;
@@ -521,7 +521,6 @@
 
   .chat-panel .chat-chips {
     gap: 6px;
-    max-height: 105px;
     padding: 8px 10px;
   }
 
