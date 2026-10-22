@@ -494,7 +494,7 @@
   }
 
   .chat-panel {
-    --chat-bottom: 140px;
+    --chat-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     --chat-top: calc(100px + env(safe-area-inset-top, 0px));
 
     right: 12px;
