@@ -455,24 +455,22 @@ nav li.open>.sub {
 }
 
 @keyframes hatecoHeroFade {
-  0%,
-  5% {
+  0% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  55% {
     opacity: 0;
   }
 
-  12%,
-  43% {
-    opacity: 0.48;
-  }
-
-  55%,
   100% {
     opacity: 0;
   }
 }
-
-
-
 .hero .wrap {
   position: relative;
   z-index: 1;
