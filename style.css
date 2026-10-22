@@ -430,7 +430,7 @@ nav li.open>.sub {
 }
 
 .hero h1 {
-  font-size: clamp(40px, 6vw, 76px);
+  font-size: clamp(38px, 6vw, 74px);
   margin: 14px 0 20px;
 }
 
@@ -477,7 +477,7 @@ nav li.open>.sub {
 }
 
 .finder h2 {
-  font-size: 30px;
+  font-size: 28px;
   margin-bottom: 16px;
 }
 
@@ -541,7 +541,7 @@ section {
 }
 
 .head h2 {
-  font-size: clamp(34px, 4.5vw, 54px);
+  font-size: clamp(32px, 4.5vw, 52px);
   margin-top: 8px;
 }
 
@@ -637,7 +637,7 @@ section {
 }
 
 .card h3 {
-  font-size: 26px;
+  font-size: 24px;
   margin: 10px 0;
 }
 
@@ -836,7 +836,7 @@ section {
 }
 
 .contact h3 {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .contact p {
@@ -869,7 +869,7 @@ section {
 }
 
 .cta h2 {
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(26px, 4vw, 42px);
 }
 
 .cta .btn {
