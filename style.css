@@ -66,7 +66,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 400 16px/1.65 Inter, system-ui, sans-serif;
+  font: 400 16px/1.65 Poppins, Inter, system-ui, sans-serif;
   transition: background .3s, color .3s;
   overflow-x: hidden;
 }
@@ -129,7 +129,7 @@ a {
   border: 0;
   border-radius: 6px;
   padding: 13px 26px;
-  font: 700 15px Inter, sans-serif;
+  font: 600 14px Poppins, Inter, sans-serif;
   letter-spacing: .04em;
   text-transform: uppercase;
   cursor: pointer;
