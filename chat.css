@@ -75,19 +75,23 @@
 /* Main chatbot panel */
 
 .chat-panel {
+  /* Space kept free around the panel: change these two numbers to adjust */
+  --chat-bottom: 152px;   /* distance from the bottom of the screen */
+  --chat-top: 140px;      /* space kept free at the top (top bar + header) */
+
   position: fixed;
   right: 24px;
   left: auto;
-  bottom: 152px;
+  bottom: var(--chat-bottom);
   z-index: 1199;
 
   display: flex;
   flex-direction: column;
 
   width: min(390px, calc(100vw - 32px));
-  height: min(560px, calc(100dvh - 120px));
-  min-height: 320px;
-  max-height: calc(100dvh - 32px);
+  height: min(560px, calc(100vh - var(--chat-bottom) - var(--chat-top)));
+  height: min(560px, calc(100dvh - var(--chat-bottom) - var(--chat-top)));
+  min-height: 0;
 
   padding: 0;
   margin: 0;
@@ -485,15 +489,13 @@
   }
 
   .chat-panel {
-    right: 8px;
+    --chat-bottom: 140px;
+    --chat-top: calc(160px + env(safe-area-inset-top, 0px));
+
+    right: 12px;
     left: 12px;
-    bottom: 140px;
 
     width: auto;
-    height: min(560px, calc(100dvh - 110px));
-    min-height: 300px;
-    max-height: calc(100dvh - 96px);
-
     border-radius: 14px;
   }
 
