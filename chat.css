@@ -87,9 +87,9 @@
   z-index: 999;
   display: flex;
   flex-direction: column;
-  width: min(390px, calc(100vw - 32px));
-  height: min(560px, calc(100dvh - 180px));
-  min-height: 320px;
+  width: min(360px, calc(100vw - 32px));
+  height: min(480px, calc(100dvh - 120px));
+  min-height: 0;
   overflow: hidden;
   border: 1px solid var(--chat-border);
   border-top: 4px solid var(--chat-orange);
@@ -109,16 +109,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 11px 13px;
   background: var(--chat-black);
   color: #F6EFE3;
 }
 
 .chat-avatar {
   display: grid;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   border: 1px solid #E4691C;
   border-radius: 6px;
@@ -373,8 +373,8 @@
     right: 8px;
     bottom: 140px;
     width: calc(100vw - 16px);
-    height: min(560px, calc(100dvh - 158px));
-    min-height: 280px;
+    height: min(460px, calc(100dvh - 158px));
+    min-height: 0;
   }
 
   .chat-head {
