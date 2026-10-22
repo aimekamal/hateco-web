@@ -20,7 +20,7 @@
   position: fixed;
   right: 24px;
   left: auto;
-  bottom: 24px;
+  bottom: 84px;
   z-index: 1200;
 
   display: flex;
@@ -78,7 +78,7 @@
   position: fixed;
   right: 24px;
   left: auto;
-  bottom: 110px;
+  bottom: 152px;
   z-index: 1199;
 
   display: flex;
@@ -478,16 +478,16 @@
   .chat-launch {
     right: 16px;
     left: auto;
-    bottom: 16px;
+    bottom: 78px;
 
     width: 54px;
     height: 54px;
   }
 
   .chat-panel {
-    right: 12px;
+    right: 8px;
     left: 12px;
-    bottom: 96px;
+    bottom: 140px;
 
     width: auto;
     height: min(560px, calc(100dvh - 110px));
