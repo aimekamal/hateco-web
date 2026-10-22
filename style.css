@@ -427,7 +427,7 @@ nav li.open>.sub {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: hatecoHeroFade 12s infinite;
+  animation: hatecoHeroFade 8s infinite;
   transform: scale(1.02);
 }
 
@@ -438,7 +438,7 @@ nav li.open>.sub {
 
 .hero-slide-two {
   background-image: url("leb.jpeg");
-  animation-delay: 6s;
+  animation-delay: 4s;
 }
 
 .hero-slideshow::after {
@@ -447,9 +447,9 @@ nav li.open>.sub {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.66) 55%,
-    rgba(0, 0, 0, 0.48) 100%
+    rgba(0, 0, 0, 0.60) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.30) 100%
   );
   pointer-events: none;
 }
