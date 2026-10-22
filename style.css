@@ -440,7 +440,7 @@ nav li.open>.sub {
 .hero-slide-one {
   background-image: url("building.jpeg");
   z-index: 2;
-  animation: heroCrossfade 4s ease-in-out infinite;
+  animation: heroCrossfade 6s ease-in-out infinite;
 }
 
 /* Dark layer so the text stays readable */
