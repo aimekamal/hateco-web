@@ -410,7 +410,7 @@ nav li.open>.sub {
   align-items: center;
 }
 
-
+/* ---- Background slideshow ---- */
 
 .hero-slideshow {
   position: absolute;
@@ -420,31 +420,35 @@ nav li.open>.sub {
   background: #111;
 }
 
+/* Both photos fill the banner exactly (cropped if needed, never stretched) */
 .hero-slide {
   position: absolute;
   inset: 0;
-  background-size: auto, auto;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
-  animation: hatecoHeroFade 8s infinite;
-  transform: scale(1.02);
+  will-change: opacity;
 }
 
-.hero-slide-one {
-  background-image: url("building.jpeg");
-  animation-delay: 0s;
-}
-
+/* Photo 2 stays underneath all the time */
 .hero-slide-two {
   background-image: url("leb.jpeg");
-  animation-delay: 4s;
+  z-index: 1;
 }
 
+/* Photo 1 sits on top and fades out, then back in */
+.hero-slide-one {
+  background-image: url("building.jpeg");
+  z-index: 2;
+  animation: heroCrossfade 14s ease-in-out infinite;
+}
+
+/* Dark layer so the text stays readable */
 .hero-slideshow::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 3;
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0.60) 0%,
@@ -454,23 +458,24 @@ nav li.open>.sub {
   pointer-events: none;
 }
 
-@keyframes hatecoHeroFade {
-  0% {
-    opacity: 1;
-  }
+/* 14 seconds in total: each photo shows about 5.5s, and each fade takes 1.5s */
+@keyframes heroCrossfade {
+  0%      { opacity: 1; }
+  39.29%  { opacity: 1; }
+  50%     { opacity: 0; }
+  89.29%  { opacity: 0; }
+  100%    { opacity: 1; }
+}
 
-  45% {
-    opacity: 1;
-  }
-
-  55% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
+/* Visitors who prefer no motion just see photo 1 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-one {
+    animation: none;
   }
 }
+
+/* ---- Hero content ---- */
+
 .hero .wrap {
   position: relative;
   z-index: 1;
@@ -484,7 +489,6 @@ nav li.open>.sub {
 .hero-content {
   max-width: 850px;
 }
-
 
 .eyebrow {
   color: var(--orange);
