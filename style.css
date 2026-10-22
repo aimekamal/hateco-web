@@ -166,14 +166,16 @@ a {
   font-size: 13px;
 }
 
+
 .top .wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 12px;
   min-height: 42px;
   flex-wrap: wrap;
 }
+
 
 .soc,
 .ctl {
