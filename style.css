@@ -440,7 +440,7 @@ nav li.open>.sub {
 .hero-slide-one {
   background-image: url("building.jpeg");
   z-index: 2;
-  animation: heroCrossfade 8s ease-in-out infinite;
+  animation: heroCrossfade 4s ease-in-out infinite;
 }
 
 /* Dark layer so the text stays readable */
@@ -461,9 +461,9 @@ nav li.open>.sub {
 /* 14 seconds in total: each photo shows about 5.5s, and each fade takes 1.5s */
 @keyframes heroCrossfade {
   0%      { opacity: 1; }
-  36.25%  { opacity: 1; }
+  16.25%  { opacity: 1; }
   50%     { opacity: 0; }
-  86.25%  { opacity: 0; }
+  66.25%  { opacity: 0; }
   100%    { opacity: 1; }
 }
 
