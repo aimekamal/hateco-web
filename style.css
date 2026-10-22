@@ -461,9 +461,9 @@ nav li.open>.sub {
 /* 14 seconds in total: each photo shows about 5.5s, and each fade takes 1.5s */
 @keyframes heroCrossfade {
   0%      { opacity: 1; }
-  16.25%  { opacity: 1; }
+  28.33%  { opacity: 1; }
   50%     { opacity: 0; }
-  66.25%  { opacity: 0; }
+  78.33%  { opacity: 0; }
   100%    { opacity: 1; }
 }
 
