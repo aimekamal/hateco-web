@@ -35,8 +35,7 @@ const AR = {
 
   /* ---- Hero, tire finder & appointment form ---- */
   "Since 1970 • Tripoli, Lebanon": "منذ 1970 • طرابلس، لبنان",
-  "Lebanon’s key importer of tires, batteries, wheels, lubes": "من أبرز مستوردي الإطارات والبطاريات والجنوط والزيوت في لبنان",
-  "and your one stop for all your auto needs and services": "ووجهتك الواحدة لكل احتياجات سيارتك وخدماتها",
+  "Your One-Stop Destination for All Your Vehicle Needs": "وجهتك المتكاملة لكل احتياجات سيارتك",
   "Choose Your Tire": "اختر إطارك",
   "Make": "الشركة المصنعة",
   "Year": "السنة",
