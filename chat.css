@@ -78,7 +78,7 @@
   position: fixed;
   right: 24px;
   left: auto;
-  bottom: 96px;
+  bottom: 110px;
   z-index: 1199;
 
   display: flex;
@@ -487,7 +487,7 @@
   .chat-panel {
     right: 12px;
     left: 12px;
-    bottom: 82px;
+    bottom: 96px;
 
     width: auto;
     height: min(560px, calc(100dvh - 110px));
