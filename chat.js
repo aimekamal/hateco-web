@@ -25,8 +25,7 @@ const CHAT_UI = {
     placeholder: "Type your question…",
     send: "Send",
     welcome: "Hello! I’m Hateco’s virtual assistant. How can I help you today?",
-    foot: "Automated assistant. For urgent matters call +961 6 441144.",
-    chips: ["Branches & contact", "Services", "Products", "Book an appointment", "Dealers"]
+    chips: ["Branches & contact", "Services", "Products", "Dealers"]
   },
   ar: {
     title: "مساعد هاتيكو",
@@ -36,8 +35,7 @@ const CHAT_UI = {
     placeholder: "اكتب سؤالك…",
     send: "إرسال",
     welcome: "مرحباً! أنا المساعد الافتراضي لهاتيكو. كيف يمكنني مساعدتك اليوم؟",
-    foot: "مساعد آلي. للأمور العاجلة اتصل على +961 6 441144.",
-    chips: ["الفروع والاتصال", "الخدمات", "المنتجات", "حجز موعد", "الوكلاء"]
+    chips: ["الفروع والاتصال", "الخدمات", "المنتجات", "الوكلاء"]
   }
 };
 
@@ -243,7 +241,6 @@ chat.innerHTML = `
       <input type="text" class="chat-input" maxlength="300">
       <button class="chat-send" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20l18-8L3 4v6l11 2-11 2z"/></svg></button>
     </form>
-    <div class="chat-foot"></div>
   </section>`;
 document.body.appendChild(chat);
 
@@ -269,7 +266,7 @@ function applyLang() {
   input.placeholder = ui.placeholder;
   input.setAttribute("aria-label", ui.placeholder);
   el(".chat-send").setAttribute("aria-label", ui.send);
-  el(".chat-foot").textContent = ui.foot;
+
   chips.innerHTML = "";
   ui.chips.forEach(label => {
     const chip = document.createElement("button");

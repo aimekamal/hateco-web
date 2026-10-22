@@ -398,3 +398,29 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* Chat layout refinements */
+#chatPanel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+
+#chatPanel .chat-head {
+  flex: 0 0 auto;
+}
+
+#chatPanel .chat-log {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+#chatPanel .chat-chips {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+}
+
+#chatPanel .chat-form {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 10px 12px;
+}
