@@ -11,14 +11,15 @@
 
 .chat {
   font-family: "Inter", Arial, sans-serif;
-  color: #141414;
+  color: var(--text);
 }
 
 /* Floating chatbot launcher */
 
 .chat-launch {
   position: fixed;
-  left: 24px;
+  right: 24px;
+  left: auto;
   bottom: 24px;
   z-index: 1200;
 
@@ -75,7 +76,8 @@
 
 .chat-panel {
   position: fixed;
-  left: 24px;
+  right: 24px;
+  left: auto;
   bottom: 96px;
   z-index: 1199;
 
@@ -92,8 +94,8 @@
 
   overflow: hidden;
 
-  background: #FFFFFF;
-  border: 1px solid #d9ccb4;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
 
   box-shadow: 0 14px 45px rgba(0, 0, 0, 0.18);
@@ -210,8 +212,8 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 
-  background: #F6EFE3;
-  color: #141414;
+  background: var(--bg);
+  color: var(--text);
 
   scrollbar-width: thin;
   scrollbar-color: #c6b69e transparent;
@@ -251,10 +253,10 @@
 .chat-msg.bot {
   align-self: flex-start;
 
-  background: #FFFFFF;
-  color: #141414;
+  background: var(--card);
+  color: var(--text);
 
-  border: 1px solid #e5dac8;
+  border: 1px solid var(--border);
   border-bottom-left-radius: 4px;
 }
 
@@ -330,8 +332,8 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  background: #FFFFFF;
-  border-top: 1px solid #eee3d2;
+  background: var(--card);
+  border-top: 1px solid var(--border);
 }
 
 /* Quick-reply buttons */
@@ -346,10 +348,10 @@
   min-height: 30px;
   padding: 6px 10px;
 
-  border: 1px solid #d9ccb4;
+  border: 1px solid var(--border);
   border-radius: 18px;
-  background: #FFFFFF;
-  color: #141414;
+  background: var(--card);
+  color: var(--text);
 
   font-family: inherit;
   font-size: 11px;
@@ -365,7 +367,7 @@
 }
 
 .chat-chip:hover {
-  background: #F6EFE3;
+  background: var(--bg);
   border-color: #E4691C;
   color: #C9560F;
 }
@@ -386,8 +388,8 @@
   margin: 0;
   padding: 11px 12px;
 
-  background: #FFFFFF;
-  border-top: 1px solid #eee3d2;
+  background: var(--card);
+  border-top: 1px solid var(--border);
 }
 
 .chat-input {
@@ -400,12 +402,12 @@
   margin: 0;
   padding: 0 13px;
 
-  border: 1px solid #d9ccb4;
+  border: 1px solid var(--border);
   border-radius: 22px;
   outline: none;
 
-  background: #FFFFFF;
-  color: #141414;
+  background: var(--card);
+  color: var(--text);
 
   font-family: inherit;
   font-size: 13px;
@@ -414,7 +416,7 @@
 }
 
 .chat-input::placeholder {
-  color: #82796e;
+  color: var(--text-muted);
   opacity: 1;
 }
 
@@ -474,7 +476,8 @@
 
 @media (max-width: 600px) {
   .chat-launch {
-    left: 16px;
+    right: 16px;
+    left: auto;
     bottom: 16px;
 
     width: 54px;
@@ -482,8 +485,8 @@
   }
 
   .chat-panel {
-    left: 12px;
     right: 12px;
+    left: 12px;
     bottom: 82px;
 
     width: auto;
