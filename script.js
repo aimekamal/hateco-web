@@ -270,36 +270,46 @@ $$("[data-soon]").forEach(link => link.addEventListener("click", event => {
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
 }));
 
+
 /* ===========================================================
    9. SCROLL EFFECTS
    =========================================================== */
 
-// Fade-in: elements with class "rv" appear when scrolled into view
-const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-  if (entry.isIntersecting) {
-    entry.target.classList.add("in");
-    revealObserver.unobserve(entry.target);
-  }
-}), { threshold: 0.15 });
+// Fade-in: elements with class "rv" reveal every time
+// they enter the viewport, and reset when they leave.
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in");
+    } else {
+      entry.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.15 });
+
 $$(".rv").forEach(el => revealObserver.observe(el));
 
-// Number counters: elements with data-c="target" count up when visible
+// Number counters: elements with data-c="target" count up once
 // (optional data-s="+" adds a suffix at the end)
 const COUNTER_MS = 1400;   // animation length
+
 const counterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
   if (!entry.isIntersecting) return;
+
   const el     = entry.target;
   const target = +el.dataset.c;
   const suffix = el.dataset.s || "";
-  const from   = target > 100 ? target - 60 : 0;   // years count up from 60 below
+  const from   = target > 100 ? target - 60 : 0;
   const start  = performance.now();
 
   (function tick(now) {
     const progress = Math.min((now - start) / COUNTER_MS, 1);
     el.textContent = Math.round(from + (target - from) * progress) + (progress === 1 ? suffix : "");
+
     if (progress < 1) requestAnimationFrame(tick);
   })(start);
 
   counterObserver.unobserve(el);
 }), { threshold: 0.6 });
+
 $$("[data-c]").forEach(el => counterObserver.observe(el));
