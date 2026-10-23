@@ -1246,7 +1246,7 @@ textarea {
       rgba(0, 0, 0, 0.45) 55%,
       rgba(0, 0, 0, 0.30) 100%
     ),
-    url("building.jpeg") center 75% / cover no-repeat;
+    url("building.jpeg") center 65% / cover no-repeat;
 }
 .page-hero h1 {
   font-size: clamp(34px, 5vw, 56px);
