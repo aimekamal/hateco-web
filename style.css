@@ -1293,3 +1293,31 @@ footer .soc .instagram-link svg {
     opacity: 0.48;
   }
 }
+
+/* ===== SERVICES ICONS ===== */
+#services .service-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+#services .service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+#services .service-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.7;
+}
+
+#services .service-title h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}

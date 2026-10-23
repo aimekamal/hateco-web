@@ -179,17 +179,43 @@
         </div>
       </section>
 
-
       <!-- ===== SERVICES ===== -->
       <section id="services">
         <div class="wrap">
           <div class="head rv">
             <h2 data-i18n="Services">Services</h2>
           </div>
+
           <div class="grid3">
-            <a class="card rv" href="#services"><h3 data-i18n="Wheel Alignment">Wheel Alignment</h3><span class="more" data-i18n="Read more">Read more →</span></a>
-            <a class="card rv" href="#services"><h3 data-i18n="Wheel Balancing">Wheel Balancing</h3><span class="more" data-i18n="Read more">Read more →</span></a>
-            <a class="card rv" href="#services"><h3 data-i18n="Free BTW Health Check">Free BTW Health Check</h3><span class="more" data-i18n="Read more">Read more →</span></a>
+            <a class="card rv" href="#services">
+              <div class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <i data-lucide="crosshair"></i>
+                </span>
+                <h3 data-i18n="Wheel Alignment">Wheel Alignment</h3>
+              </div>
+              <span class="more" data-i18n="Read more">Read more →</span>
+            </a>
+
+            <a class="card rv" href="#services">
+              <div class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <i data-lucide="circle-gauge"></i>
+                </span>
+                <h3 data-i18n="Wheel Balancing">Wheel Balancing</h3>
+              </div>
+              <span class="more" data-i18n="Read more">Read more →</span>
+            </a>
+
+            <a class="card rv" href="#services">
+              <div class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <i data-lucide="clipboard-check"></i>
+                </span>
+                <h3 data-i18n="Free BTW Health Check">Free BTW Health Check</h3>
+              </div>
+              <span class="more" data-i18n="Read more">Read more →</span>
+            </a>
           </div>
         </div>
       </section>
@@ -339,5 +365,9 @@
     <script src="script.js" defer></script>
     <script src="chat.js" defer></script>
     <script src="chat.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
