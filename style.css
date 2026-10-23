@@ -1237,13 +1237,17 @@ textarea {
    ========================================================== */
 
 .page-hero {
+  min-height: 280px;
   padding: 64px 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.62) 0%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.30) 100%
+    ),
+    url("building.jpeg") center / cover no-repeat;
 }
-
-.page-hero .wrap {
-  grid-template-columns: 1fr;
-}
-
 .page-hero h1 {
   font-size: clamp(34px, 5vw, 56px);
   margin: 10px 0 0;
