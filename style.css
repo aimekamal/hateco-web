@@ -84,7 +84,7 @@ body::before {
 [dir=rtl] input,
 [dir=rtl] select,
 [dir=rtl] button {
-  font-family: Cairo, Inter, sans-serif;
+  font-family: "hanimation", Cairo, sans-serif;
 }
 
 h1,
@@ -100,7 +100,7 @@ h3 {
 [dir=rtl] h1,
 [dir=rtl] h2,
 [dir=rtl] h3 {
-  font-family: Cairo, sans-serif;
+  font-family: "hanimation", Cairo, sans-serif;
   text-transform: none;
   line-height: 1.3;
 }
